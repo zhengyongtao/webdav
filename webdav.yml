@@ -1,0 +1,16 @@
+version: '2.1'
+
+services:
+  webdav:
+    image: doule/webdav
+    hostname: webdav
+    container_name: webdav
+    restart: always
+    environment:
+      USERNAME: admin
+      PASSWORD: admin
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /data/project/webdav/data:/var/webdav
+    ports:
+      - 80:80

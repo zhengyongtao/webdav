@@ -1,0 +1,12 @@
+FROM httpd:2
+ENV USERNAME admin
+ENV PASSWORD admin
+COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
+RUN touch /etc/DavLock
+#RUN chown www-data /etc/DavLock
+#RUN chmod 777 /etc/DavLock
+RUN chown daemon /etc/DavLock
+RUN mkdir -p /var/webdav
+ADD ./run.sh /usr/local/bin/run.sh
+RUN chmod +x /usr/local/bin/run.sh
+CMD ["run.sh"] 
