@@ -11,6 +11,6 @@ services:
       PASSWORD: admin
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /data/project/webdav/data:/var/webdav
+      - ./data:/var/webdav
     ports:
       - 80:80
